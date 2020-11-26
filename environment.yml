@@ -1,0 +1,19 @@
+name: I2K_zarr_workshop
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.7
+  - numpy
+  - napari
+  - fsspec
+  - ipywidgets>=7.0.0
+  - scikit-image
+  - zarr
+  - numba
+  - requests
+  - aiohttp
+  - dask
+
+  # - imjoy>=0.10.10
+  # - imjoy-rpc>=0.2.30
