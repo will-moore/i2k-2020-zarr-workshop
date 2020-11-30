@@ -4,15 +4,16 @@ channels:
 dependencies:
   - python=3.8
   - numpy
-  - napari
   - fsspec
   - ipywidgets>=7.0.0
   - scikit-image
   - zarr
-  - numba
   - requests
   - aiohttp
   - dask
-
+  # - napari
+  # - numba
+  # - pip:
+  #   - ome_zarr
   # - imjoy>=0.10.10
   # - imjoy-rpc>=0.2.30
