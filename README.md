@@ -11,8 +11,8 @@ Install Anaconda https://www.anaconda.com/products/individual#Downloads
 Then, to create the environment:
 
     $ cd i2k-2020-zarr-workshop
-    $ conda env create -f environment.yml
-    $ conda activate I2K_zarr_workshop
+    $ conda env create -f environment.yml -n i2k
+    $ conda activate i2k
     $ pip install ome_zarr
 
 Run a Notebook:
