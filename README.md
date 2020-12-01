@@ -31,32 +31,37 @@ To run `napari` we need to add:
 
 ## JavaScript
 
-Simple example with zarr-lite (Trevor Manz)
-https://jsfiddle.net/will_j_moore/tvjsxgw4/9/
+**zarr-lite**
 
-https://jsfiddle.net/will_j_moore/vxa92bnf/77/
+Loading zarr data with zarr-lite (from Trevor Manz's [example](https://observablehq.com/@manzt/using-zarr-lite))
 
+ - Simplest example https://jsfiddle.net/will_j_moore/tv95ybh8/1/
+
+ - Using 'omero' channel min/max rendering settings https://jsfiddle.net/will_j_moore/vxa92bnf/77/
+
+
+**vizarr**
 
 Use https://github.com/hms-dbmi/vizarr (Trevor Manz) to browse
-[OME-zarr 5d images](https://blog.openmicroscopy.org/file-formats/community/2020/11/04/zarr-data/) from IDR.
+[OME-Zarr 5d images](https://blog.openmicroscopy.org/file-formats/community/2020/11/04/zarr-data/) from IDR.
 
 E.g. https://hms-dbmi.github.io/vizarr?source=https://s3.embassy.ebi.ac.uk/idr/zarr/v0.1/9822152.zarr 
 
+Pro Tip: Open the browser developer tools and choose Network tab to see
+what zarr chunks and metadata are being loaded.
 
-HCS Data:
 
- - idr0002: 96 Wells, multi-T https://hms-dbmi.github.io/vizarr?source=https://s3.embassy.ebi.ac.uk/idr/zarr/v0.1/plates/422.zarr
- - idr0033: 384 Wells, 9 fields https://hms-dbmi.github.io/vizarr?source=https://s3.embassy.ebi.ac.uk/idr/zarr/v0.1/plates/5966.zarr
- - idr0004: 68 Wells, multi-Z https://hms-dbmi.github.io/vizarr?source=https://s3.embassy.ebi.ac.uk/idr/zarr/v0.1/plates/1751.zarr
- - idr0094 https://hms-dbmi.github.io/vizarr?source=https://s3.embassy.ebi.ac.uk/idr/zarr/v0.1/plates/7825.zarr
- - idr0001: 96 Wells, 6 fields https://hms-dbmi.github.io/vizarr?source=https://s3.embassy.ebi.ac.uk/idr/zarr/v0.1/plates/2551.zarr
+**HCS Data**
 
- - Can view chunks and `.zattrs` being loaded via dev-tools Network
- - Can browse Plate -> Well -> Image
+Sample [OME-Zarr HCS Plates](https://blog.openmicroscopy.org/file-formats/community/2020/12/01/zarr-hcs/)
+
+E.g. https://hms-dbmi.github.io/vizarr?source=https://s3.embassy.ebi.ac.uk/idr/zarr/v0.1/plates/422.zarr
+
+Click on the images to browse Plate -> Well -> Image
 
 ## napari
 
-Open in napari using a napari plugin: [ome-zarr](https://github.com/ome/ome-zarr-py). Install with `pip install ome-zarr`. Can open any [OME-zarr 5d images](https://blog.openmicroscopy.org/file-formats/community/2020/11/04/zarr-data/) from IDR.
+Open in napari using a napari plugin: [ome-zarr](https://github.com/ome/ome-zarr-py) as installed above. Can open any [OME-zarr 5d images](https://blog.openmicroscopy.org/file-formats/community/2020/11/04/zarr-data/) from IDR.
 
     # e.g. 3D image with labels:
     $ napari https://s3.embassy.ebi.ac.uk/idr/zarr/v0.1/6001247.zarr
@@ -65,12 +70,16 @@ Also supports opening a Plate:
 
     $ napari https://s3.embassy.ebi.ac.uk/idr/zarr/v0.1/plates/422.zarr
 
-    # with labels
+    # Plate with labels
     $ napari https://s3.embassy.ebi.ac.uk/idr/zarr/v0.1/plates/2551.zarr
+
+    # Image with labels
+    $ napari https://s3.embassy.ebi.ac.uk/idr/zarr/v0.1/plates/2551.zarr/A/1/0
 
 We can make use of the labels properties in napari, e.g. to update color
 based on property values. Open the console in napari:
 
+    import numpy as np
     layer = viewer.layers[-1]
 
     for c, value in enumerate(layer.properties["area (µm)"]):
