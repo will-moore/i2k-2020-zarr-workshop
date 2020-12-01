@@ -21,7 +21,7 @@ This is sufficient to run a Notebook:
 
 To run `napari` we need to add:
 
-    $ pip install napari
+    $ pip install napari[all]
     $ pip install ome_zarr
 
     $ napari ... (see below)
