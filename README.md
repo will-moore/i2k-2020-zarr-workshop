@@ -34,6 +34,8 @@ To run `napari` we need to add:
 Simple example with zarr-lite (Trevor Manz)
 https://jsfiddle.net/will_j_moore/tvjsxgw4/9/
 
+https://jsfiddle.net/will_j_moore/vxa92bnf/77/
+
 
 Use https://github.com/hms-dbmi/vizarr (Trevor Manz) to browse
 [OME-zarr 5d images](https://blog.openmicroscopy.org/file-formats/community/2020/11/04/zarr-data/) from IDR.
