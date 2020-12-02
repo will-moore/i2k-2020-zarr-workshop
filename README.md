@@ -29,6 +29,15 @@ To run `napari` we need to add:
 
 # Demo
 
+## NGFF spec
+
+The Next Generation File Format Spec is at https://ngff.openmicroscopy.org/latest/. The current prototype is OME-Zarr, and the following notebook
+has some examples of working with this data:
+
+    # In the environment created above:
+    $ jupyter notebook ome-zarr-intro.ipynb
+
+
 ## JavaScript
 
 **zarr-lite**
@@ -59,7 +68,7 @@ E.g. https://hms-dbmi.github.io/vizarr?source=https://s3.embassy.ebi.ac.uk/idr/z
 
 Click on the images to browse Plate -> Well -> Image
 
-## napari
+## Python (napari)
 
 Open in `napari` using a `napari` plugin: [ome-zarr](https://github.com/ome/ome-zarr-py) as installed above. Can open any [OME-zarr 5d images](https://blog.openmicroscopy.org/file-formats/community/2020/11/04/zarr-data/) from IDR.
 
