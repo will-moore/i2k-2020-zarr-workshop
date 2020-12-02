@@ -61,20 +61,25 @@ Click on the images to browse Plate -> Well -> Image
 
 ## napari
 
-Open in napari using a napari plugin: [ome-zarr](https://github.com/ome/ome-zarr-py) as installed above. Can open any [OME-zarr 5d images](https://blog.openmicroscopy.org/file-formats/community/2020/11/04/zarr-data/) from IDR.
+Open in `napari` using a `napari` plugin: [ome-zarr](https://github.com/ome/ome-zarr-py) as installed above. Can open any [OME-zarr 5d images](https://blog.openmicroscopy.org/file-formats/community/2020/11/04/zarr-data/) from IDR.
 
     # e.g. 3D image with labels:
-    $ napari https://s3.embassy.ebi.ac.uk/idr/zarr/v0.1/6001247.zarr
+    $ napari https://s3.embassy.ebi.ac.uk/idr/zarr/v0.1/9822152.zarr
 
-Also supports opening a Plate:
+Also supports opening Plates and Wells:
 
-    $ napari https://s3.embassy.ebi.ac.uk/idr/zarr/v0.1/plates/422.zarr
+    # A Well with 9 fields
+    $ napari https://s3.embassy.ebi.ac.uk/idr/zarr/v0.1/plates/5966.zarr/A/1
 
     # Plate with labels
     $ napari https://s3.embassy.ebi.ac.uk/idr/zarr/v0.1/plates/2551.zarr
 
     # Image with labels
     $ napari https://s3.embassy.ebi.ac.uk/idr/zarr/v0.1/plates/2551.zarr/A/1/0
+
+The labels metadata on this plate includes properties that were added from a
+separate csv file using `ome-zarr` in a workflow describe on
+[PR #63](https://github.com/ome/ome-zarr-py/pull/63).
 
 We can make use of the labels properties in napari, e.g. to update color
 based on property values. Open the console in napari:
